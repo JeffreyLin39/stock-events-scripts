@@ -47,7 +47,7 @@ def main(folder_name):
     result_df = pd.concat(all_data, ignore_index=True)
     result_df = result_df[['Symbol', 'Date', 'Quantity', 'Price', 'Currency']]
     
-    output_file = 'ibkr_{folder_name}.csv'
+    output_file = f'ibkr_{folder_name}.csv'
     result_df.to_csv(output_file, index=False)
     print(f"Aggregated data saved to {output_file}")
 
