@@ -28,7 +28,7 @@ def process_csv(file_path):
         price = abs(float(row['amount']) / quantity)
 
         result.append({
-            'Symbol': symbol,
+            'Symbol': f'{symbol}.TO',
             'Date': date,
             'Quantity': quantity,
             'Price': price,

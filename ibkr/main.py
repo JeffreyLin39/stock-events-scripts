@@ -2,6 +2,11 @@ import os
 import sys
 import pandas as pd
 
+# Some naming exceptions
+TICKER_RENAME = {
+    'FCGV.TO': 'FCGV.V',
+}
+
 def process_ibkr_csv(file_path):
     try:
         df = pd.read_csv(file_path, skiprows=6)
@@ -20,6 +25,11 @@ def process_ibkr_csv(file_path):
         quantity = float(row['Quantity'])
         price = float(row['T. Price'])
         currency = row['Currency']
+
+        if currency == 'CAD':
+            symbol = f'{symbol}.TO'
+
+        symbol = TICKER_RENAME.get(symbol, symbol)
 
         result.append({
             'Symbol': symbol,
