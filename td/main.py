@@ -40,6 +40,8 @@ def extract_trades_from_pdf(pdf_path):
 
     # Determine currency
     currency = 'USD' if re.findall(r'USD', text) else 'CAD'
+    if currency == 'CAD':
+        symbol = f'{symbol}.TO'
 
     trades.append({
         'Symbol': symbol,
