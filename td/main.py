@@ -65,7 +65,7 @@ def main(folder_path):
         return
 
     result_df = pd.concat(all_trades, ignore_index=True)
-    output_file = 'aggregated_trades.csv'
+    output_file = f'td_{folder_path}.csv'
     result_df.to_csv(output_file, index=False)
     print(f"Aggregated trade data saved to {output_file}")
 
